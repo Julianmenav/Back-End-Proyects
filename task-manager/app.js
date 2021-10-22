@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 
 const tasks = require('./routes/tasks')
+const notFound = require('./middleware/not-found') 
 
 require('dotenv').config()
 
@@ -15,6 +16,7 @@ app.use(express.static("./public"))
 
 //routes
 app.use("/api/v1/tasks", tasks)
+app.use("/", notFound)
 
 //DB connection
 const start = async () => {
