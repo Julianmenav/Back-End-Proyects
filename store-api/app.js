@@ -1,12 +1,35 @@
 const express = require('express')
 const mongoose = require('mongoose')
 
+const productsRouter = require('./routes/products')
+const notFoundMiddleware = require('./middleware/not-found')
+const errorMiddleware = require('./middleware/error-handler')
 
 require('dotenv').config()
+require('express-async-errors')
 
 const app = express()
 const mongoUri = process.env.MONGO_URI
 const port = process.env.PORT || 5000
+
+app.use(express.json())
+
+
+//routes
+app.get('/', (req, res) => {
+    res.send('<h1>Store API</h1><a href="/api/v1/products">products route</a>')
+})
+
+app.use('/api/v1/products', productsRouter)
+
+
+
+//product route
+
+app.use(notFoundMiddleware)
+app.use(errorMiddleware)
+
+
 
 
 const start = async () => {
