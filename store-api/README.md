@@ -1,0 +1,1 @@
+This project is based on learning, using as an example a product catalog, how to make filtered searches, how to sort them, and how to make a pagination system.
