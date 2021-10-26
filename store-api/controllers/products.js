@@ -43,7 +43,7 @@ const getAllProducts = async (req, res) => {
         queryObj[field] = { [operator]: Number(value) };
       }
     });
-    //price: { '$gt': 40 }, rating: { '$gte': 4 } 
+    //price: { '$gt': 40 }, rating: { '$gte': 4 }
   }
   //Find for the specified query
   console.log(queryObj);
