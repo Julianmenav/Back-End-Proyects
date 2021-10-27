@@ -1,0 +1,3 @@
+This is a basic app to learn how to manage JSON web tokens.
+When the user logins, the server creates a token using his private key (in this case is in .env). This token is sent to the browser and puts it in local storage. 
+For future request, the browser adds the token prefixed by "Bearer" to the header of the requests and the server can validate that token using his private key mentioned before to bring access to the user.
