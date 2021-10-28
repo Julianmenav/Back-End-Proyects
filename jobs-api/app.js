@@ -26,7 +26,8 @@ const start = async () => {
     try {
         mongoose.connect(mongoUri, {
             useNewUrlParser: true,
-            useUnifiedTopology: true
+            useUnifiedTopology: true,
+            useCreateIndex: true
         }).then(console.log("Connected to database"))
         app.listen(port, console.log(`Server listening on localhost ${port}...`))
     } catch (error) {
